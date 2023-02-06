@@ -36,3 +36,11 @@ npm run build
 You can preview the production build with `npm run preview`.
 
 > To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+
+## My Notes
+
+- You may need to restart the Typescript language server to pick up changes
+- Run `npm run dev` to generate new types
+- May need to create root `tsconfig.json` to direct to the `svelte/tsconfig`
+- May need to add paths to lib paths to `CompilerOptions/path` in `svelte/tsconfig`
+- May need to create `env.d.ts` to declarer types for environment variables
