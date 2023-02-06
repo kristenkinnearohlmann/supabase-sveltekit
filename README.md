@@ -44,3 +44,5 @@ You can preview the production build with `npm run preview`.
 - May need to create root `tsconfig.json` to direct to the `svelte/tsconfig`
 - May need to add paths to lib paths to `CompilerOptions/path` in `svelte/tsconfig`
 - May need to create `env.d.ts` to declarer types for environment variables
+- <https://app.supabase.com/project/gyvgqvivdzupochjckdp/settings/api>
+- <https://supabase.com/docs/guides/getting-started/tutorials/with-sveltekit>
