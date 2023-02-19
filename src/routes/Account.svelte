@@ -40,4 +40,29 @@
 			loading = false;
 		}
 	};
+
+	async function updateProfile() {
+		try {
+			loading = true;
+			const { user } = session;
+
+			const updates = {
+				id: user.id,
+				username,
+				website,
+				avatar_url: avatarUrl,
+				updated_at: new Date()
+			};
+
+			let { error } = await supabase.from('profiles').upsert(updates);
+
+			if (error) throw error;
+		} catch (error) {
+			if (error instanceof Error) {
+				alert(error.message);
+			}
+		} finally {
+			loading = false;
+		}
+	}
 </script>
