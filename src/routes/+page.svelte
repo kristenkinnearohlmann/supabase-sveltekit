@@ -4,5 +4,13 @@
 	import Auth from './Auth.svelte';
 </script>
 
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<svelte:head>
+	<title>Supabase + SvelteKit</title>
+	<meta name="description" content="SvelteKit using supabase-js v2" />
+</svelte:head>
+
+{#if !$page.data.session}
+	<Auth />
+{:else}
+	<Account session={$page.data.session} />
+{/if}
