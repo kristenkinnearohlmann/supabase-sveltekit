@@ -1,1 +1,1 @@
-import '$lib/supbaseClient';
+import '$lib/supabaseClient';
