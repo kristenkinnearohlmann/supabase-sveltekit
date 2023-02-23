@@ -27,4 +27,35 @@
 			}
 		}
 	};
+
+	const uploadAvatar = async () => {
+		try {
+			uploading = true;
+
+			if (!files || files.length === 0) {
+				throw new Error('You must selct an image to upload.');
+			}
+
+			const file = files[0];
+			const fileExt = file.name.split('.').pop();
+			const filePath = `${Math.random()}.${fileExt}`;
+
+			let { error } = await supabase.storage.from('avatars').upload(filePath, file);
+
+			if (error) {
+				throw error;
+			}
+
+			url = filePath;
+			dispatch('upload');
+		} catch (error) {
+			if (error instanceof Error) {
+				alert(error.message);
+			}
+		} finally {
+			uploading = false;
+		}
+	};
+
+	$: if (url) downloadImage(url);
 </script>
