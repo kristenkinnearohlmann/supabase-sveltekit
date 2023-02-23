@@ -59,3 +59,31 @@
 
 	$: if (url) downloadImage(url);
 </script>
+
+<div>
+	{#if avatarUrl}
+		<img
+			src={avatarUrl}
+			alt={avatarUrl ? 'Avatar' : 'No image'}
+			class="avatar image"
+			style="height: {size}em; width: {size}em;"
+		/>
+	{:else}
+		<div class="avatar no-image" style="height: {size}em; width: {size}em;" />
+	{/if}
+
+	<div style="width: {size}em;">
+		<label class="button primary block" for="single">
+			{uploading ? 'Uploading ...' : 'Upload'}
+		</label>
+		<input
+			style="visibility: hidden; position:absolute;"
+			type="file"
+			id="single"
+			accept="image/*"
+			bind:files
+			on:change={uploadAvatar}
+			disabled={uploading}
+		/>
+	</div>
+</div>
