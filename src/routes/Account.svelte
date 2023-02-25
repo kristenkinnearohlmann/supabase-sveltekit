@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import type { AuthSession } from '@supabase/supabase-js';
 	import { supabase } from '$lib/supabaseClient';
+	import Avatar from './Avatar.svelte';
 
 	export let session: AuthSession;
 
@@ -31,7 +32,7 @@
 				avatarUrl = data.avatar_url;
 			}
 
-			if (error && status != 406) throw error;
+			if (error && status !== 406) throw error;
 		} catch (error) {
 			if (error instanceof Error) {
 				alert(error.message);
@@ -81,7 +82,8 @@
 	}
 </script>
 
-<form class="form-widget" on:submit|preventDefault={updateProfile}>
+<form use:getProfile class="form-widget" on:submit|preventDefault={updateProfile}>
+	<Avatar bind:url={avatarUrl} size={10} on:upload={updateProfile} />
 	<div>
 		<label for="email">Email</label>
 		<input id="email" type="text" value={session.user.email} disabled />
