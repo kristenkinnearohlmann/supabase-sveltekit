@@ -82,6 +82,7 @@
 	}
 </script>
 
+<!-- review if this solvable -->
 <form use:getProfile class="form-widget" on:submit|preventDefault={updateProfile}>
 	<Avatar bind:url={avatarUrl} size={10} on:upload={updateProfile} />
 	<div>
