@@ -82,7 +82,7 @@
 	}
 </script>
 
-<!-- review if this solvable -->
+<!-- no specific way to have a Typescript type for this action call -->
 <form use:getProfile class="form-widget" on:submit|preventDefault={updateProfile}>
 	<Avatar bind:url={avatarUrl} size={10} on:upload={updateProfile} />
 	<div>
