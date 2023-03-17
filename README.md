@@ -46,3 +46,4 @@ You can preview the production build with `npm run preview`.
 - May need to create `env.d.ts` to declare types for environment variables
 - <https://app.supabase.com/project/gyvgqvivdzupochjckdp/settings/api>
 - <https://supabase.com/docs/guides/getting-started/tutorials/with-sveltekit>
+- There is at least 1 unersolved TS error
